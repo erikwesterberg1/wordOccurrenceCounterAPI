@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel;
-using System.Reflection.PortableExecutable;
+using System.Web;
 using System.Text;
 using wordOccurranceCounterApi.Helpers;
 
@@ -28,14 +27,16 @@ namespace wordOccurranceCounterApi.Controllers
                 {
                     inputString = await reader.ReadToEndAsync();
                 }
+                //log inputstring
+                _logger.LogInformation("Input string: {inputString}", inputString);
 
                 if (string.IsNullOrEmpty(inputString))
                 {
-                    return BadRequest("No input, please provide a string");
+                    throw new BadHttpRequestException("No input, please provide a string");
                 }
                 if (!inputString.Contains(' '))
                 {
-                    return BadRequest("Bad input, please provide a delimiter between each word. (see documentation https://github.com/erikwesterberg1/wordOccurrenceCounterAPI)");
+                    throw new BadHttpRequestException("Bad input, please provide a delimiter between each word. (see documentation https://github.com/erikwesterberg1/wordOccurrenceCounterAPI)");
                 }
                 else
                 {
@@ -74,19 +75,17 @@ namespace wordOccurranceCounterApi.Controllers
                     //pass the sorted to top10 helper and return
                     return Ok(topTenResult);
                 }
-
-                /*using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
-                {
-                    inputString = await reader.ReadToEndAsync();
-                }*/
             }
-            catch (Exception ex) {
-                _logger.LogInformation("exception", ex.Message);
+            catch(BadHttpRequestException httpRequestException)
+            {
+                _logger.LogInformation("exception: {message}", httpRequestException.Message);
+                return BadRequest(httpRequestException.Message);
+            }
+            catch (Exception ex) 
+            {
+                _logger.LogInformation("exception: {message}", ex.Message);
                 return StatusCode(500);
             }
-
-            
-
         }
     }
 }

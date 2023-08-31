@@ -12,7 +12,7 @@ namespace wordOccurranceCounterApi.Helpers
             else
             {
                 //remove any odd characters from word
-                return Consts.notAlphbeticalChar.Replace(argument,"");
+                return Consts.notAlphbeticalCharacter.Replace(argument,"");
             }
         }
     }
