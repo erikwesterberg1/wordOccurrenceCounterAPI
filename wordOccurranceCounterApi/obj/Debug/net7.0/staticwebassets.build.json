@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ok6Bm32WPv8RGDC521dzLDUYzTVeEQb5nzFVLkrzuno=",
+  "Source": "wordOccurranceCounterApi",
+  "BasePath": "_content/wordOccurranceCounterApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
