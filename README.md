@@ -23,5 +23,8 @@ Open a code editor of your choosing, but preferably visual studio 2022. Below ar
 * If everything goes as expected you should see the result in the command prompt window.
 * `{"dog":6,"cat":5,"cow":4,"horse":3,"pig":3, etc...}`
 
+# What's a valid text input?
+Specify any text inside the quotation marks (""). The only rules are that the input text can't be empty and that the words in the text needs to be seperated by a blankspace. Neglecting those rules will cause an exception.
+
 # Any example text I can use?
 Sure, enter this lorem ipsum example: </br> `curl http://localhost:5181/counter -X POST -d "Aenean arcu neque, porta ac erat nec, scelerisque placerat dui. Donec sit amet weekend dapibus turpis, happy mattis velit. Nulla facilisi. Nunc sit amet weekend nunc justo. Fusce posuere urna happy erat auctor sollicitudin. Praesent weekend efficitur convallis convallis. Fusce pulvinar maximus lacus eget consectetur weekend. Nunc happy accumsan nunc. Nullam interdum tortor at iaculis eleifend. Quisque tristique urna eget ante vulputate, non finibus ligula convallis. Class aptent taciti sociosqu ad litora torquent per conubia weekend nostra, per inceptos himenaeos. Sed faucibus ex happy et nulla lobortis tristique. Praesent quis tristique risus. Vivamus rhoncus lacus facilisis risus elementum luctus happy eget euismod magna. Nullam dapibus, mi happy semper viverra, eros metus placerat elit, eu commodo augue enim nec velit. Quisque nec facilisis nisi." -H "Content-Type: plain/text"`
